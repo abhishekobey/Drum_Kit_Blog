@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Drum_Kit Blog</title>
+</head>
+<body>
+    <header>
+        <div class="title">
+            <h1>The Drum_Kit Blog</h1>
+        </div>
+    </header>
+    <div class="site">
+        <div class="inner" onclick="fun();">
+            <br>
+            <h1>Creating Drum_Kit with Simple CSS and JavaScript</h1>
+        </div>
+        <div class="content">
+            <br>
+            <p>This blog is about how to make a Drum_Kit using Simple CSS and JavaScript. You need to follow some various steps to make an interesting Drum_Kit. It is very interesting to experience a drum set and create new beats. You need to have a simple code editor at which you write a code of <code>html, CSS, JavaScript</code>. Also you need any web browser i.e Chrome, Firefox etc.</p>
+            <h2>Preview:</h2>
+            <img src="preview.JPG" id="z" onclick="func();" ondblclick="remove();">
+            <h2>Let’s Get Started</h2>
+            <p>Lets start with the basics and see how we can build this with step by step. This task is basically divided in two steps. First we will create the UI(User Interface i.e html and css) and then we will add JavaScript code to make the Drum kit play.</p>
+            <h2>Step 1 : Adding content to the page</h2>
+            <p>We will begin with the background image. Lets add an awesome image as a cover to the page in our <code>.css file.</code></p>
+            <img src="0th.JPG">
+            <p>Now to create the keys, we are creating <div> elements in html and will add CSS to it in our <code>.CSS file.</code></div></p>
+            <img src="1st.JPG">
+            <p>Lets break it down a little. So for every key we are creating a <code>div</code> element inside another <code>div</code> element with class <code>.keys .</code></p>
+            <h2>What is data-key ❓</h2>
+            <p>It’s a data attribute. Any attribute on any element whose attribute name starts with <code>data-</code> is a data attribute. Say if you want to store some extra information that doesn’t have any visual representation, we use data attributes for that. Here is a syntax</p>
+            <img src="2nd.JPG">
+            <p>We are using key-code as an attribute which are return values after key pressed. Here you can find all the key-codes</p>
+            <p><ul>
+                <li>The HTML Keyboard Input element <code>kbd</code> represents a span of inline text denoting textual user input from a keyboard</li>
+                <br><img src="3rd.JPG"><br><br>
+                <li>Each <code>div</code> and audio element in the <code>HTML file</code>  has a data-key attribute which corresponds with a keyboard button. Like here its "65" for <code>A</code></li>
+            </ul></p>
+            <p>Now the styling of the keys can be done as follows. Class <code>.keys</code> determine how we want to display these keys collectively whereas class <code>.key</code> is for styling of individual keys.</p>
+            <img src="keys.JPG"><br><br><br>
+            <img src="key.JPG">
+            <p>⚡️ Here we just created a single key. Like this we can create all the keys. Also you can add a title or other creative stuff you want in your design. Now lets move to the JavaScript code.</p>
+            <h2>Step 2 : Making the Drum kit play</h2>
+            <p>Before we jump straight to the code, first lets get an idea about what we are going to do. And then we will write code.</p>
+            <p><ul>
+                <li>Add event listener (keydown)</li>
+                <li>Find audio and div elements (with [data-key=”keyCode”]);</li>
+                <li>add the “playing” class to the div (and remove it after some time);</li>
+                <li>play the sound associated with the key.</li>
+            </ul></p>
+            <p>First lets create an <code>eventListener</code> to the entire window object that is listening for a <code>keydown</code> event so that we can call <code>playsound</code> function.</p>
+            <br><br><img src="4th.JPG"><br><br>
+            <p>Now create a <code>function playsound</code> which accept one parameter, the event which the function is going to handle.</p>
+            <br><br><img src="5.JPG"><br><br>
+            <p><ul>
+                <li>Now In the body of the function, declare and define two variables that will reference the <code>div and audio</code> elements that correspond with the key code which triggered the function .</li>
+                <br><br><img src="6.JPG"><br><br>
+                <li>If the key pressed doesn’t match one of the keys defined on our page we don’t need to proceed any further.</li>
+                <br><br><img src="7.JPG"><br><br>
+                <li>But if it does then we can use the variable referencing the <code>div</code> element to add the <code>.playing</code> class to it, and we can use the variable referencing the <code>audio</code> element to play the audio file.</li>
+            </ul></p>
+            <img src="8.JPG">
+            <p>The <code>play()</code> method starts playing the current audio. It does not have any parameters and return values. The syntax is</p>
+            <img src="9.JPG">
+            <p>The <code>classList</code> is a DOM property which returns the class name(s) of an element, as a <code>DOMTokenList</code> object.</p>
+            <h2>Complete Code of html:</h2>
+            <img src="10.JPG">
+            <h2>Complete Code of css:</h2>
+            <img src="10th.JPG">
+            <h2>Complete Code of JavaScript:</h2>
+            <img src="11.JPG">
+        </div>
+    </div>
+    <footer>
+        <div class="c">
+            End of Site
+        </div>
+    </footer>
+
+<script>
+    function fun() {
+        const inner = document.querySelector(`.inner[onclick]`);
+        inner.classList.add('playing');
+    }
+    function func() {
+        const content = document.querySelector(`img[onclick]`);
+        content.classList.add('zoom');
+    }
+    function remove() {
+        const con = document.querySelector(`img[ondblclick]`);
+        con.classList.remove('zoom');
+    }
+</script>
+
+</body>
+</html>
